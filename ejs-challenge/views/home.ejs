@@ -1,0 +1,11 @@
+<% include partials/header %>
+<h1>Home</h1>
+<p><%= bodyContent %></p>
+<% for (let i = 0; i < posts.length; i++) { %>
+<div>
+	<h3><%= posts[i].title %></h3>
+	<p class="phome"><%= posts[i].body %></p>
+	<a class="read-link" href="/post/<%= posts[i].title %>">Read More</a>
+</div>
+<% } %>
+<% include partials/footer %>

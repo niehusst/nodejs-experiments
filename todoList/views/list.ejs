@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TODO list</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<h2><%= listName ? listName : "Default" %></h2>
+
+	<!-- There are differnt ejs tags for differnt use cases, allows control flow or data insertion (also etc) -->
+	<% if (kindOfDay === "Monday") { %>
+		<h1 style="color: red;">fuck today is: <%= kindOfDay %></h1>
+	<% } else { %>
+		<h1 style="color: blue;">Congrats today is: <%= kindOfDay %></h1>
+	<% } %>
+
+	<h2>Things to do:</h2>
+	<% for (let i = 0; i < items.length; i++) { %>
+	<form action="/delete" method="post">
+		<div>
+			<input type="checkbox" name="checkbox" value="<%= items[i]._id %>" onChange="this.form.submit()">
+			<input type="hidden" value="<%= listName ? listName : '__null__' %>" name="listName">
+			<span id="item"><%= items[i].name %></span>
+		</div>
+	</form>
+	<% } %>
+
+	<form class="" action="/" method="post">
+		<input type="text" name="newItem">
+		<button type="submit" value="<%= listName ? listName : '__null__' %>" name="listName">Add</button>
+	</form>
+</body>
+</html>
