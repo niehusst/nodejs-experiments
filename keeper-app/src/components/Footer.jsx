@@ -1,7 +1,9 @@
 import React from 'react';
 
 
-// footer
+/**
+ * Renders a Footer component displaying a copyright message with the current year.
+ */
 function Footer() {
     return (
         <footer>
