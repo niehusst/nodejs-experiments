@@ -1,5 +1,6 @@
 
-exports.getDay = function() {
+
+function getDay() {
 	const today = new Date().getDay();
 	let day;
 
@@ -25,3 +26,5 @@ exports.getDay = function() {
 
 	return day;
 };
+
+exports.getDay = getDay;
