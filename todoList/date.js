@@ -16,6 +16,9 @@ exports.getDay = function() {
 		case 3:
 			day = "Wdnesday";
 			break;
+    case 4:
+      day = "yo mama";
+      break;
 		default:
 			day = "didnt feel like coding rest";
 	}
