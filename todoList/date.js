@@ -1,5 +1,10 @@
 
 
+/**
+ * Returns the current day of the week as a string.
+ * Note: This function currently only supports Sunday, Monday, Tuesday, Wednesday, and a custom day "yo mama".
+ * Any other day will return the string "didnt feel like coding rest".
+ */
 function getDay() {
 	const today = new Date().getDay();
 	let day;
