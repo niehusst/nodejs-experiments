@@ -8,7 +8,7 @@ This API endpoint returns a simple string message when accessed.
 
 ### Path Parameters
 
-None
+No path parameters are required for this endpoint.
 
 ### Example Request
 

@@ -4,7 +4,7 @@
 GET /
 ```
 
-This API endpoint retrieves all items from the database and renders them on the page. The day of the week is also included in the response.
+This API endpoint retrieves all items from the database and renders them on the webpage. The day of the week is also retrieved and displayed.
 
 ### Path Parameters
 
@@ -45,7 +45,7 @@ fetch('http://localhost:3000/', {
 
 **200**: The request was successful and the items were retrieved from the database.
 
-**500**: An error occurred on the server while trying to retrieve the items from the database.
+**500**: An error occurred on the server while trying to retrieve the items.
 
 <br />
 
@@ -88,13 +88,13 @@ The API does not return a JSON response. Instead, it redirects to the page of th
 
 <br />
 
-## Delete Item
+## Delete Item Endpoint
 
 ```
 POST /delete
 ```
 
-This API endpoint deletes an item from a specified list or from the general item pool if no list is specified.
+This API endpoint deletes an item from a specified list or from the default list if no list is specified.
 
 ### Path Parameters
 
@@ -104,7 +104,7 @@ This API endpoint deletes an item from a specified list or from the general item
 
 **checkbox** (String) *required* - The ID of the item to be deleted.
 
-**listName** (String) *optional* - The name of the list from which the item should be deleted. If not provided, the item will be deleted from the general item pool.
+**listName** (String) *optional* - The name of the list from which the item should be deleted. If not provided, the item will be deleted from the default list.
 
 ### Example Request
 
@@ -123,13 +123,15 @@ fetch('/delete', {
 
 ### Example Response
 
-The response will be a redirection to the list page if a list name was provided, or to the main page if no list name was provided.
+The response will be a redirection to the list page from which the item was deleted. If the item was deleted from the default list, the response will be a redirection to the home page.
 
 ### Response Codes
 
-**200**: The item was successfully deleted and the user was redirected.
+**200**: The item was successfully deleted.
 
-**500**: An error occurred while trying to delete the item.
+**400**: The required 'checkbox' parameter was not provided in the request body.
+
+**500**: An error occurred on the server while attempting to delete the item.
 
 <br />
 
@@ -165,11 +167,21 @@ fetch('/Groceries', {
 }
 ```
 
+Or, if the list already exists:
+
+```json
+{
+  "kindOfDay": "Monday",
+  "listName": "Groceries",
+  "items": ["Apples", "Bananas"]
+}
+```
+
 ### Response Codes
 
 **200**: The list was successfully retrieved or created.
 
-**500**: An error occurred on the server while attempting to retrieve or create the list.
+**500**: An error occurred on the server while trying to retrieve or create the list.
 
 <br />
 
