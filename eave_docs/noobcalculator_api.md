@@ -1,14 +1,14 @@
-## Home Page Endpoint
+## Home Page
 
 ```
 GET /
 ```
 
-This API endpoint sends the home page (index.html) of the application.
+This API endpoint sends the home page of the website to the client.
 
 ### Path Parameters
 
-No path parameters are required for this endpoint.
+None
 
 ### Example Request
 
@@ -22,13 +22,21 @@ fetch('/', {
 
 ### Example Response
 
-The response will be the HTML content of the index.html file.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to our website!</h1>
+</body>
+</html>
+```
 
 ### Response Codes
 
-**200**: The home page was successfully retrieved and sent to the client.
-
-**404**: The index.html file could not be found in the server directory.
+**200**: This response code will be returned when the home page is successfully retrieved.
 
 <br />
 
@@ -68,7 +76,7 @@ fetch('/', {
 ### Example Response
 
 ```
-The answer to 5 + 10 is: 15
+"The answer to 5 + 10 is: 15"
 ```
 
 ### Response Codes
