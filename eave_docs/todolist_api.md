@@ -1,10 +1,10 @@
-## List Items Endpoint
+## List Items
 
 ```
 GET /
 ```
 
-This API endpoint retrieves all items from the database and renders them on the webpage. The day of the week is also retrieved and displayed.
+This API endpoint retrieves all items from the database and renders them on the page. The day of the week is also included in the response.
 
 ### Path Parameters
 
@@ -43,9 +43,9 @@ fetch('http://localhost:3000/', {
 
 ### Response Codes
 
-**200**: The request was successful and the items were retrieved from the database.
+**200**: This response code will be returned when the items are successfully retrieved from the database.
 
-**500**: An error occurred on the server while trying to retrieve the items.
+**500**: This response code will be returned if there is a server error while retrieving the items from the database.
 
 <br />
 
@@ -80,15 +80,19 @@ fetch('/', {
 
 ### Example Response
 
-The API does not return a JSON response. Instead, it redirects to the page of the list to which the item was added. If no list name was provided, it redirects to the default list page.
+The response will be a redirection to the list page. If a list name was provided, the redirection will be to that list's page. If no list name was provided, the redirection will be to the default list's page.
 
 ### Response Codes
 
-**302**: The item was successfully created and added to the specified list, or the default list if no list name was provided. The user is redirected to the list page.
+**200**: The item was successfully created and added to the list.
+
+**400**: The request was malformed. For example, no item name was provided.
+
+**500**: An error occurred on the server while trying to create the item or add it to the list.
 
 <br />
 
-## Delete Item Endpoint
+## Delete Item
 
 ```
 POST /delete
@@ -123,7 +127,7 @@ fetch('/delete', {
 
 ### Example Response
 
-The response will be a redirection to the list page from which the item was deleted. If the item was deleted from the default list, the response will be a redirection to the home page.
+The response will be a redirection to the list page from which the item was deleted. If the item was deleted from the default list, the response will redirect to the home page.
 
 ### Response Codes
 
@@ -145,7 +149,7 @@ This API endpoint retrieves a list by its name. If the list does not exist, it c
 
 ### Path Parameters
 
-**listName** (string) *required* - The name of the list to retrieve or create.
+**listName** (String) *required* - The name of the list to retrieve or create.
 
 ### Example Request
 
@@ -167,21 +171,11 @@ fetch('/Groceries', {
 }
 ```
 
-Or, if the list already exists:
-
-```json
-{
-  "kindOfDay": "Monday",
-  "listName": "Groceries",
-  "items": ["Apples", "Bananas"]
-}
-```
-
 ### Response Codes
 
 **200**: The list was successfully retrieved or created.
 
-**500**: An error occurred on the server while trying to retrieve or create the list.
+**500**: An error occurred on the server while attempting to retrieve or create the list.
 
 <br />
 
