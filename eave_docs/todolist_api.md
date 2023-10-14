@@ -43,9 +43,9 @@ fetch('http://localhost:3000/', {
 
 ### Response Codes
 
-**200**: This response code will be returned when the items are successfully retrieved from the database.
+**200**: The request was successful and the items were retrieved from the database.
 
-**500**: This response code will be returned if there is a server error while retrieving the items from the database.
+**500**: An error occurred on the server while trying to retrieve the items.
 
 <br />
 
@@ -58,6 +58,10 @@ POST /
 This API endpoint is used to create a new item and add it to a list. If a list name is provided, the item is added to that list. If no list name is provided, the item is saved to a default list.
 
 ### Path Parameters
+
+None
+
+### Request Body
 
 **newItem** (string) *required* - The name of the new item to be created.
 
@@ -80,19 +84,15 @@ fetch('/', {
 
 ### Example Response
 
-The response will be a redirection to the list page. If a list name was provided, the redirection will be to that list's page. If no list name was provided, the redirection will be to the default list's page.
+The response will be a redirect to the list page. If a list name was provided, the response will redirect to that list's page. If no list name was provided, the response will redirect to the default list's page.
 
 ### Response Codes
 
-**200**: The item was successfully created and added to the list.
-
-**400**: The request was malformed. For example, no item name was provided.
-
-**500**: An error occurred on the server while trying to create the item or add it to the list.
+**302**: The item was successfully created and the response is a redirect to the appropriate list page.
 
 <br />
 
-## Delete Item
+## Delete Item Endpoint
 
 ```
 POST /delete
@@ -131,9 +131,7 @@ The response will be a redirection to the list page from which the item was dele
 
 ### Response Codes
 
-**200**: The item was successfully deleted.
-
-**400**: The required 'checkbox' parameter was not provided in the request body.
+**200**: The item was successfully deleted and the client is redirected to the appropriate list page.
 
 **500**: An error occurred on the server while attempting to delete the item.
 
@@ -149,7 +147,7 @@ This API endpoint retrieves a list by its name. If the list does not exist, it c
 
 ### Path Parameters
 
-**listName** (String) *required* - The name of the list to retrieve or create.
+**listName** (string) *required* - The name of the list to retrieve or create.
 
 ### Example Request
 
@@ -168,6 +166,16 @@ fetch('/Groceries', {
   "kindOfDay": "Monday",
   "listName": "Groceries",
   "items": []
+}
+```
+
+Or, if the list already exists:
+
+```json
+{
+  "kindOfDay": "Monday",
+  "listName": "Groceries",
+  "items": ["Apples", "Bananas"]
 }
 ```
 

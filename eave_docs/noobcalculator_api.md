@@ -4,17 +4,17 @@
 GET /
 ```
 
-This API endpoint sends the home page of the website to the client.
+This API endpoint sends the home page of the website.
 
 ### Path Parameters
 
-None
+No path parameters are required for this endpoint.
 
 ### Example Request
 
 ```javascript
-fetch('/', {
-  method: 'GET',
+fetch("/", {
+  method: "GET",
 })
 .then(response => response.text())
 .then(data => console.log(data));
@@ -22,21 +22,13 @@ fetch('/', {
 
 ### Example Response
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>Welcome to our website!</h1>
-</body>
-</html>
-```
+The response will be the HTML content of the home page.
 
 ### Response Codes
 
-**200**: This response code will be returned when the home page is successfully retrieved.
+**200**: The home page was successfully retrieved and returned.
+
+**404**: The requested resource could not be found on this server. This could occur if the "/html/index.html" file does not exist.
 
 <br />
 
@@ -76,7 +68,7 @@ fetch('/', {
 ### Example Response
 
 ```
-"The answer to 5 + 10 is: 15"
+The answer to 5 + 10 is: 15
 ```
 
 ### Response Codes
