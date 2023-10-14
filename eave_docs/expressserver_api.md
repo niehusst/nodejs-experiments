@@ -4,11 +4,11 @@
 GET /
 ```
 
-This API endpoint returns a simple string message when accessed.
+This API endpoint returns a simple string message when the root URL ("/") is accessed.
 
 ### Path Parameters
 
-No path parameters are required for this endpoint.
+None
 
 ### Example Request
 
@@ -76,7 +76,7 @@ This API endpoint returns a string message when accessed.
 
 ### Path Parameters
 
-No path parameters are required for this endpoint.
+None
 
 ### Example Request
 
@@ -96,7 +96,7 @@ fetch('/about', {
 
 ### Response Codes
 
-**200**: This response code will be returned when the request is successful.
+**200**: The request was successful and the message was returned.
 
 <br />
 
