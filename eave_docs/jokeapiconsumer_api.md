@@ -13,7 +13,7 @@ No path parameters are required for this endpoint.
 ### Example Request
 
 ```javascript
-fetch('/', {
+fetch('http://localhost:3000/', {
   method: 'GET',
 })
 .then(response => response.text())
@@ -28,7 +28,7 @@ The response will be the HTML content of the home page.
 
 **200**: The home page was successfully retrieved and returned.
 
-**404**: The requested resource could not be found on this server. This could occur if the "/html/index.html" file does not exist.
+**404**: The requested resource could not be found on this server. This could occur if the index.html file is missing or the path is incorrect.
 
 <br />
 
@@ -38,7 +38,7 @@ The response will be the HTML content of the home page.
 POST /
 ```
 
-This API endpoint fetches a random quote from an external API and returns it in a humorous "yo mamma" joke format.
+This API endpoint fetches a random quote from an external API and returns it in a humorous format.
 
 ### Path Parameters
 
