@@ -28,7 +28,7 @@ The response will be the HTML content of the index.html file.
 
 **200**: The home page was successfully retrieved and sent to the client.
 
-**404**: The index.html file could not be found in the server directory.
+**404**: The requested resource could not be found on this server. This could occur if the index.html file does not exist in the specified directory.
 
 <br />
 

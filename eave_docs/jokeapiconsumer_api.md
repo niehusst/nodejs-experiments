@@ -1,10 +1,10 @@
-## Home Page
+## Home Page Endpoint
 
 ```
 GET /
 ```
 
-This API endpoint sends the home page of the website.
+This API endpoint sends the home page of the website to the client.
 
 ### Path Parameters
 
@@ -26,9 +26,9 @@ The response will be the HTML content of the home page.
 
 ### Response Codes
 
-**200**: The home page was successfully retrieved and returned.
+**200**: The home page was successfully retrieved and sent to the client.
 
-**404**: The requested resource could not be found on this server. This could occur if the index.html file is missing or the path is incorrect.
+**404**: The home page could not be found. This could occur if there is an issue with the server's file system.
 
 <br />
 

@@ -76,7 +76,7 @@ This API endpoint returns a string message when accessed.
 
 ### Path Parameters
 
-No path parameters are required for this endpoint.
+None
 
 ### Example Request
 
