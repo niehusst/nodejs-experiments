@@ -1,10 +1,10 @@
-## Home Page Endpoint
+## Home Page
 
 ```
 GET /
 ```
 
-This API endpoint sends the home page of the website to the client.
+This API endpoint sends the home page of the website.
 
 ### Path Parameters
 
@@ -13,8 +13,8 @@ No path parameters are required for this endpoint.
 ### Example Request
 
 ```javascript
-fetch('http://localhost:3000/', {
-  method: 'GET',
+fetch("/", {
+  method: "GET",
 })
 .then(response => response.text())
 .then(data => console.log(data));
@@ -47,7 +47,7 @@ None
 ### Example Request
 
 ```javascript
-fetch('https://your-api-url.com/', {
+fetch('/', {
   method: 'POST',
 })
 .then(response => response.json())
@@ -56,8 +56,10 @@ fetch('https://your-api-url.com/', {
 
 ### Example Response
 
-```json
-"yo mamma so stupid that she said: 'The only way to do great work is to love what you do.'"
+```javascript
+{
+  "message": "yo mamma so stupid that she said: \"The only way to do great work is to love what you do.\""
+}
 ```
 
 ### Response Codes

@@ -8,7 +8,7 @@ This API endpoint sends the home page (index.html) of the application.
 
 ### Path Parameters
 
-No path parameters are required for this endpoint.
+None
 
 ### Example Request
 
@@ -22,13 +22,21 @@ fetch('/', {
 
 ### Example Response
 
-The response will be the HTML content of the index.html file.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to our website!</h1>
+</body>
+</html>
+```
 
 ### Response Codes
 
-**200**: The home page was successfully retrieved and sent to the client.
-
-**404**: The requested resource could not be found on this server. This could occur if the index.html file does not exist in the specified directory.
+**200**: This response code will be returned when the home page is successfully retrieved.
 
 <br />
 
@@ -60,7 +68,7 @@ fetch('/', {
   },
   body: JSON.stringify({
     num1: 5,
-    num2: 10,
+    num2: 3,
   }),
 });
 ```
@@ -68,14 +76,14 @@ fetch('/', {
 ### Example Response
 
 ```
-"The answer to 5 + 10 is: 15"
+The answer to 5 + 3 is: 8
 ```
 
 ### Response Codes
 
 **200**: The sum of the two numbers will be returned.
 
-**400**: This response code will be returned if either num1 or num2 is not provided in the request body.
+**400**: This response code will be returned if the request body does not contain num1 and num2, or if they are not numbers.
 
 <br />
 
