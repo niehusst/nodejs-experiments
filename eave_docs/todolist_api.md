@@ -55,13 +55,13 @@ fetch('http://localhost:3000/', {
 POST /
 ```
 
-This API endpoint is used to create a new item and add it to a specified list. If no list is specified, the item is saved to a default list.
+This API endpoint is used to create a new item and add it to a list. If a list name is provided, the item is added to that list. If no list name is provided, the item is saved to a default list.
 
 ### Path Parameters
 
 **newItem** (string) *required* - The name of the new item to be created.
 
-**listName** (string) *optional* - The name of the list to which the new item will be added. If not provided, the item will be added to a default list.
+**listName** (string) *optional* - The name of the list to which the new item should be added. If not provided, the item will be added to a default list.
 
 ### Example Request
 
@@ -80,15 +80,15 @@ fetch('/', {
 
 ### Example Response
 
-The API does not return a JSON response. Instead, it redirects to the page of the list to which the item was added. If the item was added to the default list, it redirects to the home page.
+The API does not return a JSON response. Instead, it redirects to the page of the list to which the item was added. If no list name was provided, it redirects to the default list page.
 
 ### Response Codes
 
-**302**: The item was successfully created and added to the specified list, or to the default list if no list was specified. The user is redirected to the page of the list to which the item was added.
+**302**: The item was successfully created and added to the specified list, or the default list if no list name was provided. The user is redirected to the list page.
 
 <br />
 
-## Delete Item Endpoint
+## Delete Item
 
 ```
 POST /delete
@@ -98,9 +98,13 @@ This API endpoint deletes an item from a specified list or from the default list
 
 ### Path Parameters
 
-**id** (String) *required* - The ID of the item to be deleted.
+None
 
-**listName** (String) *optional* - The name of the list from which the item will be deleted. If not provided, the item will be deleted from the default list.
+### Request Body Parameters
+
+**checkbox** (String) *required* - The ID of the item to be deleted.
+
+**listName** (String) *optional* - The name of the list from which the item should be deleted. If not provided, the item will be deleted from the default list.
 
 ### Example Request
 
@@ -119,13 +123,11 @@ fetch('/delete', {
 
 ### Example Response
 
-The response will be a redirection to the list from which the item was deleted. If the item was deleted from the default list, the response will be a redirection to the home page.
+The response will be a redirection to the list page from which the item was deleted. If the item was deleted from the default list, the response will redirect to the home page.
 
 ### Response Codes
 
-**200**: The item was successfully deleted.
-
-**400**: The required parameters were not provided or were invalid.
+**200**: The item was successfully deleted and the client is redirected to the appropriate list page.
 
 **500**: An error occurred on the server while attempting to delete the item.
 
@@ -141,7 +143,7 @@ This API endpoint retrieves a list by its name. If the list does not exist, it c
 
 ### Path Parameters
 
-**listName** (string) *required* - The name of the list to retrieve or create.
+**listName** (String) *required* - The name of the list to retrieve or create.
 
 ### Example Request
 

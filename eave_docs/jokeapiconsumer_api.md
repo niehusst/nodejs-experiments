@@ -8,12 +8,12 @@ This API endpoint sends the home page of the website to the client.
 
 ### Path Parameters
 
-No path parameters are required for this endpoint.
+None
 
 ### Example Request
 
 ```javascript
-fetch('http://localhost:3000/', {
+fetch('/', {
   method: 'GET',
 })
 .then(response => response.text())
@@ -22,13 +22,21 @@ fetch('http://localhost:3000/', {
 
 ### Example Response
 
-The response will be the HTML content of the home page.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to our website!</h1>
+</body>
+</html>
+```
 
 ### Response Codes
 
-**200**: The home page was successfully retrieved and sent to the client.
-
-**404**: The home page could not be found. This could occur if there is an issue with the server's file system.
+**200**: This response code will be returned when the home page is successfully retrieved.
 
 <br />
 
