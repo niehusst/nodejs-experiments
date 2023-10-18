@@ -58,13 +58,13 @@ fetch('/auth/google', {
 
 ### Example Response
 
-The response will be dependent on the user's Google profile and the passport.js configuration. 
+The response will be dependent on the user's Google profile and the success of the authentication process.
 
 ### Response Codes
 
-**200**: Successful authentication
+**200**: The request was successful and the user was authenticated.
 
-**401**: Unauthorized, when the authentication fails.
+**401**: Unauthorized. The user could not be authenticated.
 
 <br />
 

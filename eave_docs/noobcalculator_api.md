@@ -1,19 +1,19 @@
-## Home Page Endpoint
+## Home Page
 
 ```
 GET /
 ```
 
-This API endpoint sends the home page (index.html) of the application.
+This API endpoint sends the home page of the website to the client.
 
 ### Path Parameters
 
-None
+No path parameters are required for this endpoint.
 
 ### Example Request
 
 ```javascript
-fetch('/', {
+fetch('http://localhost:3000/', {
   method: 'GET',
 })
 .then(response => response.text())
@@ -22,21 +22,13 @@ fetch('/', {
 
 ### Example Response
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>Welcome to our website!</h1>
-</body>
-</html>
-```
+The response will be the HTML content of the home page.
 
 ### Response Codes
 
-**200**: This response code will be returned when the home page is successfully retrieved.
+**200**: The home page was successfully retrieved and sent to the client.
+
+**404**: The home page could not be found. This could be due to an error in the server file path.
 
 <br />
 
@@ -68,7 +60,7 @@ fetch('/', {
   },
   body: JSON.stringify({
     num1: 5,
-    num2: 3,
+    num2: 10,
   }),
 });
 ```
@@ -76,14 +68,14 @@ fetch('/', {
 ### Example Response
 
 ```
-The answer to 5 + 3 is: 8
+"The answer to 5 + 10 is: 15"
 ```
 
 ### Response Codes
 
 **200**: The sum of the two numbers will be returned.
 
-**400**: This response code will be returned if the request body does not contain num1 and num2, or if they are not numbers.
+**400**: This response code will be returned if either num1 or num2 is not provided in the request body.
 
 <br />
 
