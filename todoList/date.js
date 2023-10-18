@@ -8,8 +8,9 @@
  * For Thursday, it returns "yo mama".
  * For Friday and Saturday, it returns "didnt feel like coding rest".
  */
-function getDay() {
+function getDay(dummy = 10) {
 	const today = new Date().getDay();
+  console.log(dummy);
 	let day;
 
 	switch (today) {
@@ -26,7 +27,7 @@ function getDay() {
 			day = "Wdnesday";
 			break;
     case 4:
-      day = "yo mama";
+      day = "my mama";
       break;
 		default:
 			day = "didnt feel like coding rest";
