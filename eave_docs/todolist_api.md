@@ -1,4 +1,4 @@
-## List Items
+## List Items Endpoint
 
 ```
 GET /
@@ -45,7 +45,7 @@ fetch('http://localhost:3000/', {
 
 **200**: The request was successful and the items were retrieved from the database.
 
-**500**: An error occurred on the server while trying to retrieve the items.
+**500**: An error occurred on the server while trying to retrieve the items from the database.
 
 <br />
 
@@ -55,7 +55,7 @@ fetch('http://localhost:3000/', {
 POST /
 ```
 
-This API endpoint is used to create a new item and add it to a list. If a list name is provided, the item is added to that list. If no list name is provided, the item is saved to a default list.
+This API endpoint is used to create a new item and add it to a specified list. If no list is specified, the item is saved to a default list.
 
 ### Path Parameters
 
@@ -80,15 +80,15 @@ fetch('/', {
 
 ### Example Response
 
-The API does not return a JSON response. Instead, it redirects to the page of the list to which the item was added. If no list name was provided, it redirects to the default list page.
+The API does not return a JSON response. Instead, it redirects to the page of the list to which the item was added. If the item was added to the default list, it redirects to the home page.
 
 ### Response Codes
 
-**302**: The item was successfully created and added to the specified list, or the default list if no list name was provided. The user is redirected to the list page.
+**302**: The item was successfully created and added to the specified list, or to the default list if no list was specified. The user is redirected to the page of the list to which the item was added.
 
 <br />
 
-## Delete Item
+## Delete Item Endpoint
 
 ```
 POST /delete
@@ -98,13 +98,9 @@ This API endpoint deletes an item from a specified list or from the default list
 
 ### Path Parameters
 
-None
+**id** (String) *required* - The id of the item to be deleted.
 
-### Request Body Parameters
-
-**checkbox** (String) *required* - The ID of the item to be deleted.
-
-**listName** (String) *optional* - The name of the list from which the item should be deleted. If not provided, the item will be deleted from the default list.
+**listName** (String) *optional* - The name of the list from which the item will be deleted. If not provided, the item will be deleted from the default list.
 
 ### Example Request
 

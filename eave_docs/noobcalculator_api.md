@@ -1,4 +1,4 @@
-## Home Page
+## Home Page Endpoint
 
 ```
 GET /
@@ -28,7 +28,7 @@ The response will be the HTML content of the home page.
 
 **200**: The home page was successfully retrieved and sent to the client.
 
-**404**: The home page could not be found. This could be due to an error in the server file path.
+**404**: The home page could not be found. This could occur if there is an issue with the server's file system.
 
 <br />
 
@@ -60,7 +60,7 @@ fetch('/', {
   },
   body: JSON.stringify({
     num1: 5,
-    num2: 10,
+    num2: 3,
   }),
 });
 ```
@@ -68,14 +68,14 @@ fetch('/', {
 ### Example Response
 
 ```
-"The answer to 5 + 10 is: 15"
+"The answer to 5 + 3 is: 8"
 ```
 
 ### Response Codes
 
 **200**: The sum of the two numbers will be returned.
 
-**400**: This response code will be returned if either num1 or num2 is not provided in the request body.
+**400**: This response code will be returned if the request body does not contain num1 and num2, or if they are not numbers.
 
 <br />
 

@@ -23,14 +23,14 @@ fetch('/', {
 ### Example Response
 
 ```
-HTML content of the home page
+{ 
+  "message": "Home page rendered successfully"
+}
 ```
 
 ### Response Codes
 
-**200**: The home page was successfully rendered.
-
-**500**: An error occurred on the server while trying to render the home page.
+**200**: This response code will be returned when the home page is successfully rendered.
 
 <br />
 
@@ -53,12 +53,24 @@ fetch('/auth/google', {
   method: 'GET',
 })
 .then(response => response.json())
-.then(data => console.log(data));
+.then(data => console.log(data))
+.catch((error) => {
+  console.error('Error:', error);
+});
 ```
 
 ### Example Response
 
-The response will be dependent on the user's Google profile and the success of the authentication process.
+```
+{
+  "user": {
+    "id": "1234567890",
+    "displayName": "John Doe",
+    "emails": [{"value": "johndoe@gmail.com"}],
+    "photos": [{"value": "https://lh3.googleusercontent.com/a-/AOh14GjmrjMgP2p..."}]
+  }
+}
+```
 
 ### Response Codes
 
@@ -68,17 +80,17 @@ The response will be dependent on the user's Google profile and the success of t
 
 <br />
 
-## Google Authentication
+## Google Authentication Endpoint
 
 ```
 GET /auth/google/secrets
 ```
 
-This API endpoint is used to authenticate a user with Google. If the authentication is successful, the user is redirected to the '/secrets' page. If the authentication fails, the user is redirected to the '/login' page.
+This API endpoint is used to authenticate users via Google. If the authentication is successful, the user is redirected to the '/secrets' page. If the authentication fails, the user is redirected to the '/login' page.
 
 ### Path Parameters
 
-None
+No path parameters are required for this endpoint.
 
 ### Example Request
 
@@ -98,13 +110,13 @@ fetch('/auth/google/secrets', {
 
 ### Example Response
 
-This endpoint does not return a JSON response. It redirects the user to either the '/secrets' page or the '/login' page based on the success or failure of the authentication.
+The response will be a redirection to either the '/secrets' page or the '/login' page, depending on the success or failure of the authentication.
 
 ### Response Codes
 
-**302**: This response code will be returned when the user is successfully authenticated and is being redirected to the '/secrets' page.
+**302**: This response code will be returned after successful authentication, redirecting the user to the '/secrets' page.
 
-**401**: This response code will be returned when the user authentication fails and the user is being redirected to the '/login' page.
+**401**: This response code will be returned if the authentication fails, redirecting the user to the '/login' page.
 
 <br />
 
