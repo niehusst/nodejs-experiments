@@ -3,12 +3,10 @@
 /**
  * Returns the current day of the week as a string.
  * If the current day is Sunday, Monday, Tuesday, Wednesday, or Thursday,
- * it returns the respective day name.
- * For any other day, it returns "didnt feel like coding rest".
- * Also logs the provided dummy value to the console.
+ * it returns the respective day. For any other day, it returns a default message.
  *
- * @param {number} [dummy=10] - The value to be logged to the console.
- * @returns {string} The current day of the week.
+ * @param {number} dummy - A number that is logged to the console but otherwise not used.
+ * @returns {string} The current day of the week or a default message.
  */
 function getDay(dummy = 10) {
 	const today = new Date().getDay();
