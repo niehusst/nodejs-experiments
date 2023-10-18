@@ -2,11 +2,11 @@
 
 /**
  * Returns the current day of the week as a string.
- * Note: This function has incomplete and incorrect mappings for some days.
- * Currently, it only correctly returns "Sunday", "Monday", and "Tuesday".
- * For Wednesday, it returns "Wdnesday".
- * For Thursday, it returns "yo mama".
- * For Friday and Saturday, it returns "didnt feel like coding rest".
+ * If the current day is Sunday, Monday, Tuesday, Wednesday, or Thursday,
+ * it returns the respective day. For any other day, it returns a default message.
+ *
+ * @param {number} dummy - A number that is logged to the console but otherwise not used.
+ * @returns {string} The current day of the week or a default message.
  */
 function getDay(dummy = 10) {
 	const today = new Date().getDay();
