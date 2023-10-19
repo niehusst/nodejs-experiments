@@ -26,8 +26,8 @@ function getDay(dummy = 10) {
 		case 3:
 			day = "Wdnesday";
 			break;
-    case 4:
-      day = "my mama";
+    case 5:
+      day = "our mama";
       break;
 		default:
 			day = "didnt feel like coding rest";
