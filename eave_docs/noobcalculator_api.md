@@ -4,16 +4,16 @@
 GET /
 ```
 
-This API endpoint sends the home page of the website to the client.
+This API endpoint sends the home page of the website.
 
 ### Path Parameters
 
-No path parameters are required for this endpoint.
+None
 
 ### Example Request
 
 ```javascript
-fetch('http://localhost:3000/', {
+fetch('/', {
   method: 'GET',
 })
 .then(response => response.text())
@@ -22,13 +22,21 @@ fetch('http://localhost:3000/', {
 
 ### Example Response
 
-The response will be the HTML content of the home page.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to our website!</h1>
+</body>
+</html>
+```
 
 ### Response Codes
 
-**200**: The home page was successfully retrieved and sent to the client.
-
-**404**: The home page could not be found. This could be due to an error in the server file path.
+**200**: This response code will be returned when the home page is successfully retrieved.
 
 <br />
 
@@ -38,13 +46,9 @@ The response will be the HTML content of the home page.
 POST /
 ```
 
-This API endpoint accepts two numbers in the request body and returns the sum of these two numbers.
+This API endpoint performs addition operation on two numbers provided in the request body.
 
 ### Path Parameters
-
-None
-
-### Request Body
 
 **num1** (Number) *required* - The first number to be added.
 
@@ -60,22 +64,24 @@ fetch('/', {
   },
   body: JSON.stringify({
     num1: 5,
-    num2: 10,
+    num2: 3,
   }),
-});
+})
+.then(response => response.text())
+.then(data => console.log(data));
 ```
 
 ### Example Response
 
 ```
-"The answer to 5 + 10 is: 15"
+"The answer to 5 + 3 is: 8"
 ```
 
 ### Response Codes
 
-**200**: The sum of the two numbers will be returned.
+**200**: This response code will be returned when the addition operation is successful.
 
-**400**: This response code will be returned if either num1 or num2 is not provided in the request body.
+**400**: This response code will be returned when the required parameters are not provided in the request body.
 
 <br />
 

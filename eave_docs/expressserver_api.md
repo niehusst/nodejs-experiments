@@ -96,7 +96,7 @@ fetch('/about', {
 
 ### Response Codes
 
-**200**: This response code will be returned when the request is successful.
+**200**: The request was successful and the message was returned.
 
 <br />
 

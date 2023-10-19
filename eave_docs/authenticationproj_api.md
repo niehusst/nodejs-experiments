@@ -23,14 +23,14 @@ fetch('/', {
 ### Example Response
 
 ```
-HTML content of the home page
+{ 
+  "message": "Home page rendered successfully"
+}
 ```
 
 ### Response Codes
 
-**200**: The home page was successfully rendered.
-
-**500**: An error occurred on the server while trying to render the home page.
+**200**: This response code will be returned when the home page is successfully rendered.
 
 <br />
 
@@ -44,7 +44,7 @@ This API endpoint is used to authenticate users via Google.
 
 ### Path Parameters
 
-None
+No path parameters are required for this endpoint.
 
 ### Example Request
 
@@ -53,12 +53,13 @@ fetch('/auth/google', {
   method: 'GET',
 })
 .then(response => response.json())
-.then(data => console.log(data));
+.then(data => console.log(data))
+.catch((error) => console.error('Error:', error));
 ```
 
 ### Example Response
 
-The response will be dependent on the user's Google profile and the success of the authentication process.
+The response will depend on the user's Google account and the success of the authentication process. 
 
 ### Response Codes
 
