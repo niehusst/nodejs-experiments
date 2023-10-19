@@ -3,10 +3,11 @@
 /**
  * Returns the current day of the week as a string.
  * If the current day is Sunday, Monday, Tuesday, Wednesday, or Thursday,
- * it returns the respective day. For any other day, it returns a default message.
+ * it returns the respective day. For any other day not defined in the switch statement,
+ * it returns a default string. Also logs the value of the dummy parameter.
  *
- * @param {number} dummy - A number that is logged to the console but otherwise not used.
- * @returns {string} The current day of the week or a default message.
+ * @param {number} dummy - A number to be logged to the console. Default value is 10.
+ * @returns {string} The current day of the week or a default string.
  */
 function getDay(dummy = 10) {
 	const today = new Date().getDay();
