@@ -1,38 +1,4 @@
-## Home Page Endpoint
-
-```
-GET /
-```
-
-This API endpoint sends the home page (index.html) of the application.
-
-### Path Parameters
-
-No path parameters are required for this endpoint.
-
-### Example Request
-
-```javascript
-fetch('/', {
-  method: 'GET',
-})
-.then(response => response.text())
-.then(data => console.log(data));
-```
-
-### Example Response
-
-The response will be the HTML content of the index.html file.
-
-### Response Codes
-
-**200**: The home page was successfully retrieved and sent to the client.
-
-**404**: The index.html file could not be found.
-
-<br />
-
-## Random Quote API
+## Random Quote Generator
 
 ```
 POST /

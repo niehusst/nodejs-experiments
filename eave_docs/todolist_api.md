@@ -1,61 +1,10 @@
-## List Items
-
-```
-GET /
-```
-
-This API endpoint retrieves all items from the database and renders them on the page. The day of the week is also included in the response.
-
-### Path Parameters
-
-None
-
-### Example Request
-
-```javascript
-fetch('http://localhost:3000/', {
-  method: 'GET',
-})
-.then(response => response.json())
-.then(data => console.log(data));
-```
-
-### Example Response
-
-```json
-{
-  "listName": null,
-  "kindOfDay": "Monday",
-  "items": [
-    {
-      "id": 1,
-      "name": "Item 1",
-      "description": "This is item 1"
-    },
-    {
-      "id": 2,
-      "name": "Item 2",
-      "description": "This is item 2"
-    }
-  ]
-}
-```
-
-### Response Codes
-
-**200**: The request was successful and the items were retrieved from the database.
-
-**500**: An error occurred on the server while trying to retrieve the items.
-
-<br />
-
 ## Create Item
 
 ```
 POST /
 ```
 
-This API endpoint is used to create a new item and add it to a specified list. If no list is specified, the item is saved to a default list.
+This API endpoint is used to create a new item and add it to a list. If a list name is provided, the item is added to that list. If no list name is provided, the item is saved to a default list.
 
 ### Path Parameters
 
@@ -80,15 +29,15 @@ fetch('/', {
 
 ### Example Response
 
-The API does not return a JSON response. Instead, it redirects to the page of the list to which the item was added. If the item was added to the default list, it redirects to the home page.
+The response will be a redirect to the list page. If a list name was provided, the user will be redirected to that list's page. If no list name was provided, the user will be redirected to the default list's page.
 
 ### Response Codes
 
-**302**: The item was successfully created and added to the specified list, or to the default list if no list was specified. The user is redirected to the page of the list to which the item was added.
+**302**: This response code will be returned after the new item has been successfully created and added to the specified list (or the default list if no list name was provided).
 
 <br />
 
-## Delete Item
+## Delete Item Endpoint
 
 ```
 POST /delete
@@ -100,7 +49,7 @@ This API endpoint deletes an item from a specified list or from the default list
 
 **None**
 
-### Request Body
+### Request Body Parameters
 
 **checkbox** (String) *required* - The ID of the item to be deleted.
 
