@@ -1,16 +1,67 @@
+## List Items
+
+```
+GET /
+```
+
+This API endpoint retrieves all items from the database and renders them on the page. The day of the week is also included in the response.
+
+### Path Parameters
+
+None
+
+### Example Request
+
+```javascript
+fetch('http://localhost:3000/', {
+  method: 'GET',
+})
+.then(response => response.json())
+.then(data => console.log(data));
+```
+
+### Example Response
+
+```json
+{
+  "listName": null,
+  "kindOfDay": "Monday",
+  "items": [
+    {
+      "id": 1,
+      "name": "Item 1",
+      "description": "This is item 1"
+    },
+    {
+      "id": 2,
+      "name": "Item 2",
+      "description": "This is item 2"
+    }
+  ]
+}
+```
+
+### Response Codes
+
+**200**: The request was successful and the items were retrieved from the database.
+
+**500**: An error occurred on the server while trying to retrieve the items.
+
+<br />
+
 ## Create Item
 
 ```
 POST /
 ```
 
-This API endpoint is used to create a new item and add it to a list. If a list name is provided, the item is added to that list. If no list name is provided, the item is saved to a default list.
+This API endpoint is used to create a new item and add it to a list. If no list is specified, the item is saved to a default list.
 
 ### Path Parameters
 
 **newItem** (string) *required* - The name of the new item to be created.
 
-**listName** (string) *optional* - The name of the list to which the new item should be added. If not provided, the item will be added to a default list.
+**listName** (string) *optional* - The name of the list to which the new item will be added. If not provided, the item will be added to a default list.
 
 ### Example Request
 
@@ -29,11 +80,11 @@ fetch('/', {
 
 ### Example Response
 
-The response will be a redirect to the list page. If a list name was provided, the user will be redirected to that list's page. If no list name was provided, the user will be redirected to the default list's page.
+The response will be a redirect to the list page. If a list name was provided, it will redirect to that list's page. If not, it will redirect to the default list page.
 
 ### Response Codes
 
-**302**: This response code will be returned after the new item has been successfully created and added to the specified list (or the default list if no list name was provided).
+**302**: This response code will be returned after the item has been successfully created and added to the specified list (or the default list if no list was specified).
 
 <br />
 
@@ -49,7 +100,7 @@ This API endpoint deletes an item from a specified list or from the default list
 
 **None**
 
-### Request Body Parameters
+### Request Body
 
 **checkbox** (String) *required* - The ID of the item to be deleted.
 
@@ -76,9 +127,7 @@ The response will be a redirection to the list page from which the item was dele
 
 ### Response Codes
 
-**200**: The item was successfully deleted and the client is redirected to the appropriate list page.
-
-**500**: An error occurred on the server while attempting to delete the item.
+**302**: This response code will be returned after the item has been successfully deleted and the user is redirected.
 
 <br />
 
@@ -92,7 +141,7 @@ This API endpoint retrieves a list by its name. If the list does not exist, it c
 
 ### Path Parameters
 
-**listName** (String) *required* - The name of the list to retrieve or create.
+**listName** (string) *required* - The name of the list to retrieve or create.
 
 ### Example Request
 

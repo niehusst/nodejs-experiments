@@ -1,3 +1,37 @@
+## Home Page Endpoint
+
+```
+GET /
+```
+
+This API endpoint sends the home page (index.html) of the application to the client.
+
+### Path Parameters
+
+No path parameters are required for this endpoint.
+
+### Example Request
+
+```javascript
+fetch('/', {
+  method: 'GET',
+})
+.then(response => response.text())
+.then(data => console.log(data));
+```
+
+### Example Response
+
+The response will be the HTML content of the index.html file.
+
+### Response Codes
+
+**200**: The home page was successfully retrieved and sent to the client.
+
+**404**: The requested resource could not be found on this server. This could occur if the index.html file does not exist in the specified directory.
+
+<br />
+
 ## Addition API Endpoint
 
 ```
@@ -28,7 +62,7 @@ fetch('/', {
     num1: 5,
     num2: 3,
   }),
-});
+})
 ```
 
 ### Example Response
